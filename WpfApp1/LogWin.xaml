@@ -1,0 +1,62 @@
+﻿<Window x:Class="Case2.LogWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Вход" Height="500" Width="400"
+        ResizeMode="NoResize"
+        Background="#333333">
+    <Grid>
+        <!-- Градиентная полоса -->
+        <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="5">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="Green" Offset="0"/>
+                    <GradientStop Color="Blue" Offset="0.25"/>
+                    <GradientStop Color="Purple" Offset="0.5"/>
+                    <GradientStop Color="Red" Offset="0.75"/>
+                    <GradientStop Color="Yellow" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <!-- Основное содержимое -->
+        <Border BorderThickness="1" BorderBrush="#FFFFFF" CornerRadius="10" Margin="50" Background="#F0F0F0">
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Заголовок -->
+                <TextBlock Text="Login" FontSize="28" FontWeight="Bold" Foreground="#333333" Grid.Row="0" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+                <!-- Поле для логина -->
+                <Grid Grid.Row="1" Margin="0,0,0,10">
+                    <TextBox x:Name="txtUsername" Text="Username" Foreground="Gray"
+                             GotFocus="TxtUsername_GotFocus" LostFocus="TxtUsername_LostFocus"
+                             BorderBrush="#CCCCCC" BorderThickness="1" Padding="10" Height="40" />
+                </Grid>
+
+                <!-- Поле для пароля -->
+                <Grid Grid.Row="2" Margin="0,0,0,10">
+                    <PasswordBox x:Name="txtPassword" BorderBrush="#CCCCCC" BorderThickness="1" Padding="10" Height="40" />
+                    <TextBlock x:Name="txtPasswordPlaceholder" Text="Password" Foreground="Gray"
+                               VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0"
+                               IsHitTestVisible="False"
+                               GotFocus="TxtPasswordPlaceholder_GotFocus" LostFocus="TxtPasswordPlaceholder_LostFocus"/>
+                </Grid>
+
+                <!-- Кнопка Sign in -->
+                <Button Content="Sign in" Grid.Row="3" Margin="0,0,0,10" 
+                        Background="#FF3B30" Foreground="#FFFFFF" BorderBrush="#FF3B30" BorderThickness="0" 
+                        Padding="20" FontSize="16" FontWeight="Bold" Click="BtnSignIn_Click"/>
+
+                <!-- Ссылка на регистрацию -->
+                <TextBlock Grid.Row="4" HorizontalAlignment="Center" Foreground="#4CAF50" TextDecorations="Underline" 
+                           Text="Don't have an account? Register" Cursor="Hand" MouseLeftButtonDown="TxtRegister_MouseLeftButtonDown"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
